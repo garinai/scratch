@@ -1,0 +1,10 @@
+# common cpp git ignore
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+.vscode/*
+.history/*
+test
