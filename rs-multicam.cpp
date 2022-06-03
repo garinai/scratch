@@ -6,6 +6,18 @@
 
 #include <map>
 #include <vector>
+#include <librealsense2/rs.hpp>
+#include <librealsense2/rs_advanced_mode.hpp>
+
+#include <iostream>
+
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+
+using namespace rs2;
+using namespace std;
+
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +38,13 @@ int main(int argc, char *argv[])
         {
             rs2::pipeline pipe(ctx);
             rs2::config cfg;
-            cfg.enable_device(serial);
+
+            cfg.enable_stream(RS2_STREAM_COLOR, 1920, 1080, RS2_FORMAT_RGB8, 0); // commenting this line shows all streams
+            // cfg.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 0); // uncommenting either of these lines cases application to fail
+            // cfg.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
+
+            rs2_config_enable_device(cfg.get().get(), serial.c_str(), 0);
+
             pipe.start(cfg);
             pipelines.emplace_back(pipe);
             colorizers[serial] = rs2::colorizer();
