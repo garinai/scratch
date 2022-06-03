@@ -1,2 +1,2 @@
 # scratch
-build and run with `make
+build and run with `make`
