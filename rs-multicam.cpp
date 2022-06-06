@@ -39,8 +39,8 @@ int main(int argc, char *argv[])
             rs2::pipeline pipe(ctx);
             rs2::config cfg;
 
-            // cfg.enable_stream(RS2_STREAM_COLOR, 1920, 1080, RS2_FORMAT_RGB8, 0); // uncommenting this shows just the color streams
-            // cfg.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 0); // then, uncommenting any of these lines fails
+            // cfg.enable_stream(RS2_STREAM_COLOR, 1920, 1080, RS2_FORMAT_RGB8, 30); // uncommenting this shows just the color streams
+            // cfg.enable_stream(RS2_STREAM_DEPTH, 640, 480, RS2_FORMAT_Z16, 30); // then, uncommenting any of these lines fails
             // cfg.enable_stream(RS2_STREAM_INFRARED, 640, 480, RS2_FORMAT_Y8, 30);
 
             // with all of the above commented out, the following line shows all streams, but without resolution changes
